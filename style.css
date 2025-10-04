@@ -1,0 +1,370 @@
+```css
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body{
+    width: 100%;
+    background: linear-gradient(to right, rgb(255,255,255), rgb(254,215,173));
+    color: black;
+}
+
+/* NAVIGATION */
+nav{
+    width: 100%;
+    height: 10vh;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+}
+
+.nav-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    color: black;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.logo span{
+    color: rgb(109,67, 0);
+    text-shadow: 0 0 10px rgb(109,67, 0);
+}
+
+.hamburg, .cancel{
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: black;
+    font-size: 2rem;
+    display: none;
+}
+
+.nav-container .links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-container .links a{
+    position: relative;
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s linear;
+}
+
+.nav-container .links a::before{
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: rgb(109,67, 0);
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before{
+    width: 100%;
+}
+
+.nav-container .contact-btn{
+    background-color: transparent;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 2px solid rgb(109,67, 0);
+    transition: 0.2s linear;
+}
+
+.nav-container .contact-btn a{
+    color: black;
+    transition: 0.3s linear;
+}
+
+.nav-container .contact-btn:hover, .nav-container .contact-btn:hover a{
+    background-color: rgb(109,67, 0);
+    color: white;
+}
+
+.nav-container .links a:hover{
+    color: rgb(109,67, 0);
+}
+
+.dropdown{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform: translateY(-500px);
+    width: 100%;
+    backdrop-filter: brightness(40%) blur(3px);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a{
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a:hover{
+    background-color: rgb(109,67, 0);
+}
+
+/* SECTION chung */
+section{
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* HOME */
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-container .image{
+    width: 45%;
+    min-width: 300px;
+}
+
+.main-container .image img{
+    width: 100%;
+}
+
+.main-container .content{
+    width: 45%;
+    min-width: 300px;
+}
+
+.content h1{
+    font-size: clamp(1rem, 2rem + 5vw, 3rem);
+}
+
+.content h1 span{
+    color: rgb(109,67, 0);
+    text-shadow: 0 0 10px rgb(109,67, 0);
+}
+
+.content .typewriter{
+    font-weight: 600;
+    font-size: clamp(1rem, 1rem + 5vw, 2rem);
+}
+
+.content .typewriter span{
+    color: rgb(109,67, 0);
+    font-size: 2.5rem;
+    text-shadow: 0 0 5px rgb(109,67, 0);
+    position: relative;
+    transition: 0.3s linear;
+}
+
+.typewriter span::before{
+    content: "Developer";
+    animation: words 15s infinite;
+}
+
+.typewriter span::after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    animation: cursor 0.6s linear infinite;
+}
+
+@keyframes cursor {
+    to{ border-left: 3px solid #b74b4b; }
+}
+@keyframes words {
+    0%, 33%{ content: "Developer"; }
+    34%, 66%{ content: "Designer"; }
+    67%, 100%{ content: "Youtuber"; }
+}
+
+.content p{
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.social-links i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 0.2rem solid rgb(109,67, 0);
+    border-radius: 50%;
+    color: rgb(109,67, 0);
+    margin: 5px;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+.social-links i:hover{
+    scale: 1.2;
+    color: white;
+    background-color: rgb(109,67, 0);
+}
+.content button{
+    width: 40%;
+    height: 6vh;
+    margin: 20px 0;
+    background-color: rgb(109,67, 0);
+    color: white;
+    border: none;
+    font-size: 100%;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+.content button:hover{
+    scale: 1.1;
+    color: rgb(109,67, 0);
+    border: 2px solid rgb(109,67, 0);
+    background-color: transparent;
+    box-shadow: 0 0 20px rgb(109,67, 0);
+}
+
+/* ABOUT */
+#about {
+    background: #fff5ec;
+    flex-direction: column;
+}
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: rgb(109,67,0);
+}
+.project-links {
+    list-style: none;
+    padding: 0;
+}
+.project-links li {
+    margin: 10px 0;
+}
+.project-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: rgb(109,67,0);
+    transition: 0.3s;
+}
+.project-links a:hover {
+    color: black;
+    border-bottom: 1px solid rgb(109,67,0);
+}
+
+/* SKILLS */
+#skills {
+    background: #fdfaf5;
+    flex-direction: column;
+}
+#skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: rgb(109,67,0);
+}
+
+/* SERVICES */
+#services {
+    background: #fff5ec;
+    flex-direction: column;
+}
+#services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: rgb(109,67,0);
+}
+
+/* BLOGS */
+#blogs {
+    background: #fdfaf5;
+    flex-direction: column;
+}
+#blogs h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: rgb(109,67,0);
+}
+
+/* CONTACT */
+#contact {
+    background: #fff5ec;
+    flex-direction: column;
+}
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: rgb(109,67,0);
+}
+#contact p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width:884px) {
+    body{
+        overflow-y: visible;
+    }
+    nav .logo{
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+    .main-container{
+        flex-direction: column;
+    }
+    .nav-container .links{
+        display: none;
+    }
+    .hamburg,.cancel{
+        display: block;
+    }
+    .main-container .content{
+        width: 80%;
+    }
+    .main-container .image{
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    .social-links i{
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .cancel{ color: white; }
+}
+```
